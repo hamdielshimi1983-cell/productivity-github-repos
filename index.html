@@ -144,6 +144,81 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.4);
   }
   #backToTop:hover { background: var(--accent-hover); }
+
+  #calcFab {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    z-index: 50;
+  }
+  #calcFab:hover { border-color: var(--accent); color: var(--accent-hover); }
+
+  #calcModalOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+  #calcModalOverlay.open { display: flex; }
+  #calcModal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    max-width: 360px;
+    width: 90%;
+  }
+  #calcModal h3 { margin: 0 0 4px; font-size: 1.05rem; }
+  #calcModal .sub { color: var(--muted); font-size: 0.8rem; margin: 0 0 16px; }
+  #calcModal .way {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    background: var(--bg);
+    cursor: pointer;
+  }
+  #calcModal .way:hover { border-color: var(--accent); color: var(--accent-hover); }
+  #calcModal .way .emoji { font-size: 1.1rem; }
+  #calcModal code {
+    display: block;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 6px;
+    word-break: break-all;
+  }
+  #calcModal .closeBtn {
+    display: block;
+    margin: 14px auto 0;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  #calcModal .closeBtn:hover { color: var(--text); }
 </style>
 </head>
 <body>
@@ -152,7 +227,7 @@
   <header>
     <h1>🧰 Free For Dev — Tool Directory</h1>
     <p>Every free tool from <a href="https://github.com/FreeForDev/FreeForDev" target="_blank" rel="noopener">FreeForDev/FreeForDev</a> and <a href="https://github.com/jixserver/free-for-dev" target="_blank" rel="noopener">jixserver/free-for-dev</a>, one click away.</p>
-    <div class="stats">508 tools across 43 categories</div>
+    <div class="stats">509 tools across 43 categories</div>
     <input type="text" id="searchInput" class="search-box" placeholder="Search tools..." onkeyup="filterTools()">
   </header>
 
@@ -289,7 +364,7 @@
 
   <section id="machine-learning-data-science"><h2>Machine Learning &amp; Data Science <span class="src-tag">Other Repos</span></h2><div class="tool-grid"><div class="tool-card"><a class="tool-link" href="https://github.com/eriklindernoren/ML-From-Scratch" target="_blank" rel="noopener">ML-From-Scratch</a><p>Bare-bones NumPy implementations of core machine learning and deep learning algorithms, built for learning how they work rather than for production use.</p></div></div></section>
 
-  <section id="community-contributed-tools"><h2>Community Contributed Tools <span class="src-tag">Other Repos</span></h2><div class="tool-grid"><div class="tool-card"><a class="tool-link" href="https://github.com/NdoleStudio/httpsms" target="_blank" rel="noopener">httpsms</a><p>Turns an Android phone into an SMS gateway, allowing developers to send and receive SMS messages programmatically via an HTTP API.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/rmyndharis/OpenWA" target="_blank" rel="noopener">OpenWA</a><p>A developer-focused client/framework for automating WhatsApp interactions, messages, and bots using Web APIs or browser automation.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/hack-chat/main" target="_blank" rel="noopener">main (hack.chat)</a><p>A minimal, distraction-free, web-based chat application requiring no registration or channels setup — users simply connect to custom URL paths.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/neuron-core/neuron-ai" target="_blank" rel="noopener">neuron-ai</a><p>A PHP framework designed to build, manage, and integrate AI agentic workflows and LLM interactions directly within PHP environments.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/V33RU/awesome-connected-things-sec" target="_blank" rel="noopener">awesome-connected-things-sec</a><p>A curated &#x27;Awesome List&#x27; repository compiling security resources, tools, research, and guides related to IoT (Internet of Things) and connected device security.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">mempalace</a><p>An open-source long-term memory system designed for AI agents, using structured memory techniques to improve context retrieval and retention.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/itsfatduck/optimizerDuck" target="_blank" rel="noopener">optimizerDuck</a><p>A lightweight optimization tool/utility focused on performance tuning, script execution, or system tweaks.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">MoneyPrinterTurbo</a><p>An automated AI-powered video generation tool that produces short-form video content (for platforms like TikTok or Shorts) from a given topic or script.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/google/fonts" target="_blank" rel="noopener">Google Fonts</a><p>The complete, free, open-source library of every typeface family served by fonts.google.com, ready to download or self-host.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener">Agency Agents</a><p>A complete AI agency at your fingertips — a growing library of 150+ specialized AI agent personalities (frontend devs, PPC strategists, security auditors, and more) that install straight into Claude Code, Cursor, Gemini CLI, and other AI coding tools.</p></div></div></section>
+  <section id="community-contributed-tools"><h2>Community Contributed Tools <span class="src-tag">Other Repos</span></h2><div class="tool-grid"><div class="tool-card"><a class="tool-link" href="https://github.com/NdoleStudio/httpsms" target="_blank" rel="noopener">httpsms</a><p>Turns an Android phone into an SMS gateway, allowing developers to send and receive SMS messages programmatically via an HTTP API.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/rmyndharis/OpenWA" target="_blank" rel="noopener">OpenWA</a><p>A developer-focused client/framework for automating WhatsApp interactions, messages, and bots using Web APIs or browser automation.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/hack-chat/main" target="_blank" rel="noopener">main (hack.chat)</a><p>A minimal, distraction-free, web-based chat application requiring no registration or channels setup — users simply connect to custom URL paths.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/neuron-core/neuron-ai" target="_blank" rel="noopener">neuron-ai</a><p>A PHP framework designed to build, manage, and integrate AI agentic workflows and LLM interactions directly within PHP environments.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/V33RU/awesome-connected-things-sec" target="_blank" rel="noopener">awesome-connected-things-sec</a><p>A curated &#x27;Awesome List&#x27; repository compiling security resources, tools, research, and guides related to IoT (Internet of Things) and connected device security.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">mempalace</a><p>An open-source long-term memory system designed for AI agents, using structured memory techniques to improve context retrieval and retention.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/itsfatduck/optimizerDuck" target="_blank" rel="noopener">optimizerDuck</a><p>A lightweight optimization tool/utility focused on performance tuning, script execution, or system tweaks.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">MoneyPrinterTurbo</a><p>An automated AI-powered video generation tool that produces short-form video content (for platforms like TikTok or Shorts) from a given topic or script.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/google/fonts" target="_blank" rel="noopener">Google Fonts</a><p>The complete, free, open-source library of every typeface family served by fonts.google.com, ready to download or self-host.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener">Agency Agents</a><p>A complete AI agency at your fingertips — a growing library of 150+ specialized AI agent personalities (frontend devs, PPC strategists, security auditors, and more) that install straight into Claude Code, Cursor, Gemini CLI, and other AI coding tools.</p></div><div class="tool-card"><a class="tool-link" href="https://github.com/microsoft/call-center-ai" target="_blank" rel="noopener">Call Center AI</a><p>Microsoft's open-source AI-powered call center bot — trigger a real phone call from a single API request (or let customers call a configured number), and it handles the conversation with Azure OpenAI + Speech services, gathers structured claim data, and produces a full call report and transcript.</p></div></div></section>
 
   <footer>
     <div>Source: <a href="https://github.com/FreeForDev/FreeForDev" target="_blank" rel="noopener">github.com/FreeForDev/FreeForDev</a></div>
@@ -299,6 +374,26 @@
 </div>
 
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<button id="calcFab" onclick="document.getElementById('calcModalOverlay').classList.add('open')" title="Open React Calculator">🧮</button>
+
+<div id="calcModalOverlay" onclick="if(event.target===this) this.classList.remove('open')">
+  <div id="calcModal">
+    <h3>React Calculator</h3>
+    <p class="sub">codextron-dev/react-calculator — 4 ways to open it</p>
+    <a class="way" href="https://github.com/codextron-dev/react-calculator" target="_blank" rel="noopener"><span class="emoji">📄</span> View source on GitHub</a>
+    <a class="way" href="https://codespaces.new/codextron-dev/react-calculator" target="_blank" rel="noopener"><span class="emoji">☁️</span> Open in GitHub Codespaces</a>
+    <a class="way" href="https://stackblitz.com/github/codextron-dev/react-calculator" target="_blank" rel="noopener"><span class="emoji">⚡</span> Open in StackBlitz (runs instantly)</a>
+    <div class="way" style="cursor:default;">
+      <span class="emoji">💻</span>
+      <div>
+        Clone &amp; run locally
+        <code>git clone https://github.com/codextron-dev/react-calculator.git &amp;&amp; cd react-calculator &amp;&amp; npm install &amp;&amp; npm run dev</code>
+      </div>
+    </div>
+    <button class="closeBtn" onclick="document.getElementById('calcModalOverlay').classList.remove('open')">Close</button>
+  </div>
+</div>
 
 <script>
 function filterTools() {
